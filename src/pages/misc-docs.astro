@@ -1,19 +1,9 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Miscellaneous Documents";
+const description = "List of various documents.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Miscellaneous documents</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/misc-docs/">Documents</a>
-		<h1>Miscellaneous documents</h1>
-	</body>
-</html>
+<BaseLayout title={pageTitle} description={description}>
+  <h1>{pageTitle}</h1>
+</BaseLayout>

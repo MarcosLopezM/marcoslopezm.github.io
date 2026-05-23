@@ -1,0 +1,31 @@
+---
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "Personal site" } = Astro.props;
+const name = "Marcos López Merino";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{name} | {title}</title>
+  </head>
+  <body class="bg-base min-h-screen text-white">
+    <Nav />
+    <main class="mx-auto max-w-4xl px-6 py-12">
+      <div>
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
