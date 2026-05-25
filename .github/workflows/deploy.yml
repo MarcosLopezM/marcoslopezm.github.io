@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [notes-updated]
 permissions:
   contents: read
   pages: write
@@ -11,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v6
       - name: Install, build, and upload your site
         uses: withastro/action@v6
