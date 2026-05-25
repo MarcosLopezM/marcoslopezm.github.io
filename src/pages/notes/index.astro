@@ -65,7 +65,7 @@ const subjects = [...new Set(notes.map((n) => n.data.subject))];
           subject={note.data.subject}
           tags={note.data.tags}
           pdfUrl={note.data.pdfUrl}
-          previewUrl={note.data.previewUrl}
+          previewImage={note.data.previewImage}
           chaptersCount={note.data.chapters?.filter((ch) => ch.url).length}
         />
       ))

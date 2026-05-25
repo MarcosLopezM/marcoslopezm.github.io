@@ -1,4 +1,7 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 interface Props {
   id: string;
   title: string;
@@ -6,7 +9,7 @@ interface Props {
   subject: string;
   tags?: string[];
   pdfUrl: string;
-  previewUrl?: string;
+  previewImage?: ImageMetadata;
   chaptersCount?: number;
 }
 
@@ -17,7 +20,7 @@ const {
   subject,
   tags,
   pdfUrl,
-  previewUrl,
+  previewImage,
   chaptersCount,
 } = Astro.props;
 ---
@@ -28,14 +31,12 @@ const {
   style="background: var(--color-surface); border-color: var(--color-border); box-shadow: var(--shadow-card);"
   data-subject={subject}
 >
-  <div class="relative h-[220px] overflow-hidden" style="background: #0e0f16;">
+  <div class="relative h-55 overflow-hidden" style="background: #0e0f16;">
     {
-      previewUrl ? (
-        <img
-          src={previewUrl}
+      previewImage ? (
+        <Image
+          src={previewImage}
           alt={`Preview of ${title}`}
-          loading="lazy"
-          decoding="async"
           class="absolute inset-0 h-full w-full object-cover object-top"
         />
       ) : (

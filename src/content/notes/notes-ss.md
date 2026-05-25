@@ -6,8 +6,9 @@ date: "2026-05-24"
 tags: ["QCD", "Particle Physics"]
 hasFull: true
 pdfUrl: "https://marcoslopezm.github.io/SS/full.pdf"
-previewUrl: "https://marcoslopezm.github.io/SS/full.webp"
+previewImage: "@preview/full-notes.webp"
 chapters:
+  - title: "Antecedentes matemáticos"
   - title: "Uno"
     url: "https://marcoslopezm.github.io/SS/Ch01-algo.pdf"
   - title: "Dos"
