@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Document from "../../components/Document.astro";
+import { getCollection } from "astro:content";
+
+const notes = (await getCollection("notes")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
+
+const subjects = [...new Set(notes.map((n) => n.data.subject))];
+---
+
+<BaseLayout
+  title="Miscellaneous Documents"
+  description="Notes and documents on physics and mathematics"
+>
+  <!-- Page header -->
+  <div class="mb-10">
+    <p
+      class="mb-2 font-mono text-xs tracking-widest uppercase"
+      style="color: var(--color-accent);"
+    >
+      collection
+    </p>
+    <h1 class="font-display text-4xl font-semibold tracking-tight text-white">
+      Documents
+    </h1>
+    <p class="mt-2 text-sm text-zinc-500">
+      {notes.length}
+      {notes.length === 1 ? "document" : "documents"} available
+    </p>
+
+    <!-- Subject filter pills -->
+    {
+      subjects.length > 1 && (
+        <div class="mt-5 flex flex-wrap gap-2">
+          <button
+            class="filter-btn rounded-full border px-3.5 py-1 text-xs font-medium transition-all duration-200"
+            style="border-color: color-mix(in oklch, var(--color-accent) 30%, transparent); background: color-mix(in oklch, var(--color-accent) 8%, transparent); color: var(--color-accent);"
+            data-filter="all"
+          >
+            All
+          </button>
+          {subjects.map((s) => (
+            <button
+              class="filter-btn rounded-full border px-3.5 py-1 text-xs font-medium text-zinc-500 transition-all duration-200 hover:text-zinc-200"
+              style="border-color: var(--color-border);"
+              data-filter={s}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" id="notes-grid">
+    {
+      notes.map((note) => (
+        <Document
+          id={note.id}
+          title={note.data.title}
+          description={note.data.description}
+          subject={note.data.subject}
+          tags={note.data.tags}
+          pdfUrl={note.data.pdfUrl}
+          previewUrl={note.data.previewUrl}
+          chaptersCount={note.data.chapters?.filter((ch) => ch.url).length}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+  const cards = document.querySelectorAll<HTMLElement>(".note-card");
+
+  const activeStyle = {
+    borderColor: "color-mix(in oklch, var(--color-accent) 30%, transparent)",
+    background: "color-mix(in oklch, var(--color-accent) 8%, transparent)",
+    color: "var(--color-accent)",
+  };
+  const inactiveStyle = {
+    borderColor: "var(--color-border)",
+    background: "",
+    color: "",
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter!;
+
+      // Update button styles
+      buttons.forEach((b) => {
+        Object.assign(b.style, inactiveStyle);
+        b.classList.add("text-zinc-500");
+        b.classList.remove("text-zinc-200");
+      });
+      Object.assign(btn.style, activeStyle);
+      btn.classList.remove("text-zinc-500");
+
+      // Show/hide cards
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.subject === filter;
+        card.style.display = show ? "" : "none";
+      });
+    });
+  });
+</script>
