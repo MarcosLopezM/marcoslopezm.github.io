@@ -16,15 +16,6 @@
   --font-mono: "DM Mono", ui-monospace, "Cascadia Code", monospace;
 }
 
-:root {
-  --color-base: #0b0c10;
-  --color-surface: #13141c;
-  --color-surface-raised: #1a1c26;
-  --color-accent: #22d3ee;
-  --color-accent-dim: #0891b2;
-  --color-border: oklch(1 0 0 / 0.06);
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -41,4 +32,14 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+}
+
+body {
+  background-color: var(--color-base);
+  background-image: radial-gradient(
+    circle,
+    oklch(1 0 0 / 0.3) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
 }
