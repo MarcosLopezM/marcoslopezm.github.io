@@ -1,5 +1,5 @@
 ---
-title: "Title Pending"
+title: "Pending title"
 description: "Thesis draft."
 subject: "Thesis"
 date: "2026-05-24"
