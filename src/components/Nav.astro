@@ -31,12 +31,12 @@ function isActive(href: string) {
             <li>
               <a
                 href={href}
-                class={[
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200",
+                class="rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200"
+                style={
                   isActive(href)
-                    ? "text-accent bg-accent/10"
-                    : "text-zinc-400 hover:text-zinc-100",
-                ].join(" ")}
+                    ? " color: var(--color-accent); background: color-mix(in oklch, var(--color-accent) 10%, transparent);"
+                    : "color: oklch(0.71 0 0);"
+                }
               >
                 {label}
               </a>
