@@ -35,7 +35,7 @@
 }
 
 body {
-  background-color: var(--color-base);
+  background-color: oklch(0.09 0.01 260);
   background-image: radial-gradient(
     circle,
     oklch(1 0 0 / 0.3) 1px,
