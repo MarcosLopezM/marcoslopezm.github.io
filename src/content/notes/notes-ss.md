@@ -11,8 +11,12 @@ chapters:
   - title: "Antecedentes matemáticos"
   - title: "Uno"
     url: "https://marcoslopezm.github.io/SS/Ch01-algo.pdf"
+  - title: "Simetrías en física de partículas"
   - title: "Dos"
     url: "https://marcoslopezm.github.io/SS/Ch02-otroalgo.pdf"
+  - title: "Rompimiento Espontáneo de Simetría"
   - title: "Tres"
     url: "https://marcoslopezm.github.io/SS/Ch03-otrootroalgo.pdf"
+  - title: "El modelo de Nambu-Jona-Lasinio"
+  - title: "Estructura del pion: Factores de forma y funciones de distribución"
 ---
