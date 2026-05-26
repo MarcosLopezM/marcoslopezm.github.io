@@ -74,11 +74,11 @@ const { title, description, subject, chapters, hasFull, pdfUrl } = note.data;
   {
     chapters && chapters.length > 0 ? (
       <div>
-        <h2 class="mb-4 font-mono text-xs tracking-widest text-zinc-600 uppercase">
+        <h2 class="mb-4 font-mono text-[9pt] font-semibold tracking-widest text-emerald-300 uppercase">
           Outline
         </h2>
         <ol class="space-y-2">
-          {chapters.map((ch, i) => (
+          {chapters.map((ch, _) => (
             <li>
               {ch.url ? (
                 <a
