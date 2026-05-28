@@ -13,9 +13,9 @@ const { title, description, subject, chapters, hasFull, pdfUrl } = note.data;
 let sectionIndex = 0;
 let chapterIndex = 0;
 const numberedChapters = (chapters ?? []).map((ch) => {
-  if (!ch.url) {
+  if (ch.isChapter === true) {
     sectionIndex++;
-    chapterIndex = 0; // reset sub-counter on each new section
+    chapterIndex = 0;
     return { ...ch, number: `${sectionIndex}.` };
   } else {
     chapterIndex++;
@@ -23,7 +23,9 @@ const numberedChapters = (chapters ?? []).map((ch) => {
   }
 });
 
-const totalChapters = numberedChapters.filter((ch) => ch.url).length;
+const totalChapters = numberedChapters.filter(
+  (ch) => ch.isChapter === true,
+).length;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -89,10 +91,13 @@ const totalChapters = numberedChapters.filter((ch) => ch.url).length;
   {
     numberedChapters.length > 0 ? (
       <div>
-        <div class="mb-1 flex items-center justify-between">
-          <h2 class="font-mono text-[9pt] font-semibold tracking-widest text-emerald-300 uppercase">
+        <div class="mb-1 flex items-center justify-between text-emerald-300">
+          <h2 class="font-mono text-[9pt] font-semibold tracking-widest uppercase">
             Outline
           </h2>
+          <span class="font-mono text-[9pt] font-semibold tracking-widest uppercase">
+            {totalChapters} {totalChapters == 1 ? "chapter" : "chapters"}
+          </span>
         </div>
         <p class="mb-4 font-mono text-[9pt] text-zinc-600 italic">
           Click any chapter to open it ↗
@@ -103,9 +108,14 @@ const totalChapters = numberedChapters.filter((ch) => ch.url).length;
           role="list"
         >
           {numberedChapters.map((ch) =>
-            !ch.url ? (
+            ch.isChapter === true ? (
               <li role="listitem" class="pt-5 pb-1 first:pt-2">
-                <div class="flex items-center gap-3 px-3">
+                <a
+                  href={ch.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center gap-3 px-3 transition-opacity duration-150 hover:opacity-80"
+                >
                   <span class="font-mono text-xs font-bold text-zinc-500">
                     {ch.number}
                   </span>
@@ -117,11 +127,7 @@ const totalChapters = numberedChapters.filter((ch) => ch.url).length;
                   >
                     {ch.title}
                   </span>
-                  <span
-                    class="flex-1 border-t border-dashed border-zinc-800"
-                    aria-hidden="true"
-                  />
-                </div>
+                </a>
               </li>
             ) : (
               <li role="listitem">

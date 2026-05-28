@@ -17,7 +17,8 @@ const notesCollection = defineCollection({
         .array(
           z.object({
             title: z.string(),
-            url: z.string().url().optional(),
+            isChapter: z.boolean().optional(),
+            url: z.string().url(),
           }),
         )
         .optional(),
