@@ -11,10 +11,11 @@ chapters:
   - title: "Preliminares matemáticos"
     isChapter: true
     url: "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/main.pdf"
-  - title: "Grupos de Lie y algunos ejemplos"
+  - title: "Grupos de Lie"
     url: "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S01-lie-groups.pdf"
-  - title: "Uno"
-    url: "https://marcoslopezm.github.io/SS/Ch02-otroalgo.pdf"
+  - title: "Álgebras de Lie"
+    url: 
+    "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S02-lie-algebras.pdf"
   - title: "Uno"
     url: "https://marcoslopezm.github.io/SS/Ch01-algo.pdf"
 
