@@ -14,8 +14,7 @@ chapters:
   - title: "Grupos de Lie"
     url: "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S01-lie-groups.pdf"
   - title: "Álgebras de Lie"
-    url: 
-    "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S02-lie-algebras.pdf"
+    url: "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S02-lie-algebras.pdf"
   - title: "Uno"
     url: "https://marcoslopezm.github.io/SS/Ch01-algo.pdf"
 
