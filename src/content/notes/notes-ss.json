@@ -1,0 +1,55 @@
+{
+  "title": "Social Service Program Notes",
+  "description": "Notes about almost everything I learned during my social service program.",
+  "subject": "Notes",
+  "date": "09-Jun-2026",
+  "tags": [
+    "Group Theory",
+    "Symmetries",
+    "QCD"
+  ],
+  "hasFull": true,
+  "pdfUrl": "https://marcoslopezm.github.io/SS/full.pdf",
+  "previewImage": "@preview/full-notes.webp",
+  "chapters": [
+    {
+      "title": "Preliminares matemáticos",
+      "url": "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/main.pdf",
+      "isChapter": true
+    },
+    {
+      "title": "Grupos de Lie",
+      "url": "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S01-lie-groups.pdf"
+    },
+    {
+      "title": "Álgebras de Lie",
+      "url": "https://marcoslopezm.github.io/SS/Ch01-mathematical-background/S02-lie-algebras.pdf"
+    },
+    {
+      "title": "Notas del servicio social",
+      "url": "https://marcoslopezm.github.io/SS/Ch02-symmetries/main.pdf",
+      "isChapter": true
+    },
+    {
+      "title": "Notas del servicio social",
+      "url": "https://marcoslopezm.github.io/SS/Ch02-symmetries/S01-global-local-symmetries.pdf"
+    },
+    {
+      "title": "Notas del servicio social",
+      "url": "https://marcoslopezm.github.io/SS/Ch02-symmetries/S02-chiral-symmetry.pdf"
+    },
+    {
+      "title": "Rompimiento Espontáneo de Simetría Quiral",
+      "url": "https://marcoslopezm.github.io/SS/Ch03-SSB/main.pdf",
+      "isChapter": true
+    },
+    {
+      "title": "Mecanismo General",
+      "url": "https://marcoslopezm.github.io/SS/Ch03-SSB/S01-general-mechanism.pdf"
+    },
+    {
+      "title": "Rompimiento Espontáneo de Simetría Quiral",
+      "url": "https://marcoslopezm.github.io/SS/Ch03-SSB/S02-SXSB.pdf"
+    }
+  ]
+}
