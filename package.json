@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fetch-previews": "node ./src/scripts/download-preview.js"
+    "fetch-previews": "node ./src/scripts/download-preview.js",
+    "prebuild": "mkdir -p src/content/notes && curl -s -o src/content/notes/notes-ss.json https://marcoslopezm.github.io/SS/notes-ss.json"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
