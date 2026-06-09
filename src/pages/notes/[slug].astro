@@ -3,12 +3,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("notes");
-  return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
+  const response = await fetch(
+    "https://marcoslopezm.github.io/SS/notes-ss.json",
+  );
+  const notesData = await response.json();
+
+  return [
+    {
+      params: { slug: "notes-ss" },
+      props: { data: notesData },
+    },
+  ];
 }
 
-const { note } = Astro.props;
-const { title, description, subject, chapters, hasFull, pdfUrl } = note.data;
+const { data } = Astro.props;
+const { title, description, subject, chapters, hasFull, pdfUrl } = data;
 
 let sectionIndex = 0;
 let chapterIndex = 0;
