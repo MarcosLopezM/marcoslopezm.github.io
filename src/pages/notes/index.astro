@@ -3,9 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Document from "../../components/Document.astro";
 import { getCollection } from "astro:content";
 
-const notes = (await getCollection("notes")).sort((a, b) =>
-  b.data.date.localeCompare(a.data.date),
-);
+const notes = (await getCollection("notes")).sort((a, b) => {
+  return new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf();
+});
 
 const subjects = [...new Set(notes.map((n) => n.data.subject))];
 ---
@@ -63,10 +63,13 @@ const subjects = [...new Set(notes.map((n) => n.data.subject))];
           title={note.data.title}
           description={note.data.description}
           subject={note.data.subject}
+          date={note.data.date}
           tags={note.data.tags}
           pdfUrl={note.data.pdfUrl}
           previewImage={note.data.previewImage}
-          chaptersCount={note.data.chapters?.filter((ch) => ch.url).length}
+          chaptersCount={
+            note.data.chapters?.filter((ch) => ch.isChapter === true).length
+          }
         />
       ))
     }
