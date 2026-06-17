@@ -2,7 +2,7 @@
 title: "Pending title"
 description: "Thesis draft."
 subject: "Thesis"
-date: "2026-05-24"
+date: "24-May-2026"
 tags: ["QCD", "Particle Physics"]
 hasFull: true
 pdfUrl: "https://marcoslopezm.github.io/Tesis-Licenciatura/full.pdf"
