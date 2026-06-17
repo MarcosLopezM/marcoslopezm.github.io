@@ -16,9 +16,14 @@ async function downloadImages() {
 
   for (const img of images) {
     const response = await fetch(img.url);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch ${img.url}: ${response.status} ${response.statusText}`,
+      );
+    }
     const buffer = await response.arrayBuffer();
     await fs.writeFile(img.path, Buffer.from(buffer));
   }
 }
 
-downloadImages();
+await downloadImages();
