@@ -7,13 +7,22 @@ interface Props {
   title: string;
   description: string;
   subject: string;
+  date: string;
   tags?: string[];
   previewImage?: ImageMetadata;
   chaptersCount?: number;
 }
 
-const { id, title, description, subject, tags, previewImage, chaptersCount } =
-  Astro.props;
+const {
+  id,
+  title,
+  description,
+  subject,
+  date,
+  tags,
+  previewImage,
+  chaptersCount,
+} = Astro.props;
 ---
 
 <a
@@ -54,6 +63,7 @@ const { id, title, description, subject, tags, previewImage, chaptersCount } =
     }
 
     <div
+      aria-hidden="true"
       class="pointer-events-none absolute inset-0 flex items-center justify-center bg-[oklch(0_0_0/0.65)] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
     >
       <span
@@ -82,6 +92,11 @@ const { id, title, description, subject, tags, previewImage, chaptersCount } =
           </span>
         )
       }
+      <span
+        class="ml-auto font-mono text-[10px] tracking-widest text-zinc-500 uppercase"
+      >
+        {date}
+      </span>
     </div>
 
     <p
