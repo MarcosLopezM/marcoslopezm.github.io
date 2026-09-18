@@ -3,7 +3,7 @@ title: "Puntos Finales de la Distribución de Amplitud del Pión: Simetría Quir
 de Lattice"
 description: "Thesis draft."
 subject: "Thesis"
-date: "24-May-2026"
+date: "18-Sept-2026"
 tags: ["QCD", "Particle Physics"]
 hasFull: true
 pdfUrl: "https://marcoslopezm.github.io/Tesis-Licenciatura/full.pdf"
