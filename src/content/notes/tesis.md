@@ -1,5 +1,6 @@
 ---
-title: "Pending title"
+title: "Puntos Finales de la Distribución de Amplitud del Pión: Simetría Quiral y Datos 
+de Lattice"
 description: "Thesis draft."
 subject: "Thesis"
 date: "24-May-2026"
